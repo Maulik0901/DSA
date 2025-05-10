@@ -36,4 +36,24 @@ var number_of_common_factor = function(x,y)  {
   return ans.length;
 }
 
-console.log(number_of_common_factor(12,6));
+const num = 2436
+const aryPairs = []
+for(let i=num.toString().length;i>=1;i--){
+    let firstChar = String(num).charAt(i-1);
+    for(let j=1;j<=num.toString().length;j++) {
+        if(i == j) {
+            continue;
+        }
+        let secondChar = String(num).charAt(j-1);
+        let number = Number(firstChar)*10+Number(secondChar);
+        if(number !== 0 && firstChar !== secondChar) {
+            aryPairs.push(number)
+        }
+        
+    }
+}
+const unique = [...new Set(aryPairs)];
+const sort = unique.sort((a,b) => a-b)
+console.log(sort)
+console.log(sort[0] + sort[1])
+// console.log(number_of_common_factor(12,6));
