@@ -6,11 +6,7 @@ var plusOne = function(digits) {
     if(!digits.length || digits.length>= 100) {
         return []
     }
-    // if(digits[digits.length-1] >= 0 || digits[digits.length-1] < 9) {
-    //     digits[digits.length-1] = digits[digits.length-1] + 1;        
-    //     return digits;
-    // }
-
+    
     for(let i=digits.length-1;i>=0;i--){
         if(digits[i] == 9) {
             digits[i] = 0
@@ -19,7 +15,13 @@ var plusOne = function(digits) {
             return digits;
         }
     }
+
+    if(digits[0] == 0) {
+        digits.unshift(1)
+    }
+
+    return digits
     
 };
 
-console.log(plusOne([0,2,8]))
+console.log(plusOne([9,9,9]))
